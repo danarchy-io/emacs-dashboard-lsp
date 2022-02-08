@@ -1,0 +1,37 @@
+[[https://www.gnu.org/licenses/gpl-3.0][https://img.shields.io/badge/License-GPL%20v3-blue.svg]]
+[[https://melpa.org/#/dashboard][https://melpa.org/packages/dashboard-badge.svg]]
+[[https://stable.melpa.org/#/dashboard][https://stable.melpa.org/packages/dashboard-badge.svg]]
+
+* Dashboard Lsp widget
+
+A emacs-dashboard widget to list Lsp Session folders.
+
+* Dependencies
+
+You will need the following packages which are all available on Melpa:
+
+1. dashboard - [[https://github.com/emacs-dashboard/emacs-dashboard]]
+2. lsp-mode - [[https://github.com/emacs-lsp/lsp-mode]]
+
+* Usage
+
+#+BEGIN_SRC shell
+M-x package-install RET dashboard-lsp
+#+END_SRC
+
+ #+BEGIN_SRC elisp
+(require 'dashboard)
+(require 'dashboard-lsp)
+(dashboard-setup-startup-hook)
+(dashboard-lsp-setup)
+
+;; Or if you use use-package
+(use-package dashboard-lsp
+  :ensure t)
+(use-package dashboard
+  :ensure t
+  :after (dashboard-lsp)
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-lsp-setup))
+ #+END_SRC
